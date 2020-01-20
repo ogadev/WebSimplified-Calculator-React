@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import './styles.css';
 import Calculator from './Calculator';
 
-
+const Calc = new Calculator();
 function App() {
   
   const [currentOperandText, setCurrentOperandText] = useState('')
   const [prevOperandText, setPrevOperandText] = useState('')
 
-  const Calc = new Calculator();
+ 
 
   function updateScreen() {
-    let [current, prev] = Calc.updateDisplay();
-    console.log(current + " app curr");
+    let {current, prev} = Calc.updateDisplay();
+  
     setCurrentOperandText(current);
     setPrevOperandText(prev);
   }
@@ -25,23 +25,23 @@ function App() {
         <div className="current-operand">{currentOperandText}</div>
       </div>
       <button className="span-two" onClick={()=> {Calc.clear(); updateScreen();}}>AC</button>
-      <button onClick={() => {Calc.screenDelete()}}>DEL</button>
-      <button onClick={() => {Calc.chooseOperation('÷')}}>÷</button>
+      <button onClick={() => {Calc.screenDelete(); updateScreen()}}>DEL</button>
+      <button onClick={() => {Calc.chooseOperation('÷'); updateScreen();}}>÷</button>
       <button onClick={() => {Calc.appendNumber('1'); updateScreen()}}>1</button>
-      <button onClick={() => {Calc.appendNumber('2')}}>2</button>
-      <button onClick={() => {Calc.appendNumber('3')}}>3</button>
-      <button onClick={() => {Calc.chooseOperation('*')}}>*</button>
-      <button onClick={() => {Calc.appendNumber('4')}}>4</button>
-      <button onClick={() => {Calc.appendNumber('5')}}>5</button>
-      <button onClick={() => {Calc.appendNumber('6')}}>6</button>
-      <button onClick={() => {Calc.chooseOperation('+')}}>+</button>
-      <button onClick={() => {Calc.appendNumber('7')}}>7</button>
-      <button onClick={() => {Calc.appendNumber('8')}}>8</button>
-      <button onClick={() => {Calc.appendNumber('9')}}>9</button>
-      <button onClick={() => {Calc.chooseOperation('-')}}>-</button>
-      <button onClick={() => {Calc.appendNumber('.')}}>.</button>
-      <button onClick={() => {Calc.appendNumber('0')}}>0</button>
-      <button className="span-two">=</button>
+      <button onClick={() => {Calc.appendNumber('2'); updateScreen();;}}>2</button>
+      <button onClick={() => {Calc.appendNumber('3'); updateScreen()}}>3</button>
+      <button onClick={() => {Calc.chooseOperation('*'); updateScreen()}}>*</button>
+      <button onClick={() => {Calc.appendNumber('4'); updateScreen();}}>4</button>
+      <button onClick={() => {Calc.appendNumber('5'); updateScreen();}}>5</button>
+      <button onClick={() => {Calc.appendNumber('6'); updateScreen();}}>6</button>
+      <button onClick={() => {Calc.chooseOperation('+'); updateScreen();}}>+</button>
+      <button onClick={() => {Calc.appendNumber('7'); updateScreen();}}>7</button>
+      <button onClick={() => {Calc.appendNumber('8'); updateScreen();}}>8</button>
+      <button onClick={() => {Calc.appendNumber('9'); updateScreen();}}>9</button>
+      <button onClick={() => {Calc.chooseOperation('-'); updateScreen()}}>-</button>
+      <button onClick={() => {Calc.appendNumber('.'); updateScreen();}}>.</button>
+      <button onClick={() => {Calc.appendNumber('0'); updateScreen();}}>0</button>
+      <button className="span-two" onClick={() => {Calc.compute(); updateScreen();}}>=</button>
     </div>
   );
 }

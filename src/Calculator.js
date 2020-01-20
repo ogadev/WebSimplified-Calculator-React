@@ -1,21 +1,15 @@
 
 class Calculator {
-    constructor() {
-        this.currentOperandText = ''
-        this.prevOperandText = ''
-        this.currentOperand = ''
-        this.previousOperand = ''
-        this.operation = undefined
+    constructor()
+    {
+        this.clear();
     }
-
     clear(){
         console.log("clear")
-        this.currentOperandText = ''
-        this.prevOperandText = ''
         this.currentOperand = ''
         this.previousOperand = ''
         this.operation = undefined
-        console.log(this.currentOperand)
+       
     }
     
     screenDelete() {
@@ -27,10 +21,10 @@ class Calculator {
     }
 
     appendNumber(number) {
+      
         if (number === '.' && this.currentOperand.includes('.')) return
         this.currentOperand = (this.currentOperand + "") + (number + "")
-        
-        
+        console.log(this.currentOperand)
     }
     
     chooseOperation(operation) {
@@ -87,22 +81,20 @@ class Calculator {
     }
 
     updateDisplay() {
-        // console.log(this.getDisplayNumber(this.currentOperand) + "test")
-        this.currentOperandText = this.getDisplayNumber(this.currentOperand);    
-        // console.log(this.currentOperand + " currentOp");
-        // console.log(this.currentOperandText + " currentOpeText");
-       
+        let prevOperandTextY
+        let currentOperandTextY = this.getDisplayNumber(this.currentOperand);      
         if (this.operation != null) {
-            this.prevOperandText = `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`;
+            prevOperandTextY = `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`;
         } else {
-            this.prevOperandText = '';
+            prevOperandTextY = '';
         }
-        const curr = this.currentOperand;
-        const prev = this.previousOperand;
-        console.log(curr + " calcurt")
+        let result = {
+            current: currentOperandTextY,
+            prev: prevOperandTextY
+        }
+        return result;
+    }   
 
-        return calc 
-    }
      
 }
 

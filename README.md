@@ -1,3 +1,8 @@
+## Project Credit
+Vanilla Javascript project modifed to React based on [WebDevSimplified](https://github.com/WebDevSimplified/Vanilla-JavaScript-Calculator) project.
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

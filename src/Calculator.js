@@ -5,26 +5,19 @@ class Calculator {
         this.clear();
     }
     clear(){
-        console.log("clear")
         this.currentOperand = ''
         this.previousOperand = ''
-        this.operation = undefined
-       
+        this.operation = undefined 
     }
     
     screenDelete() {
-        console.log("screendelete")
-        // setCurrentOperand(prevCurrentOperand => prevCurrentOperand.toString().slice(0, -1));
         this.currentOperand = this.currentOperand.toString().slice(0, -1);
-        console.log(this.currentOperand);
-
     }
 
     appendNumber(number) {
       
         if (number === '.' && this.currentOperand.includes('.')) return
         this.currentOperand = (this.currentOperand + "") + (number + "")
-        console.log(this.currentOperand)
     }
     
     chooseOperation(operation) {
@@ -38,29 +31,29 @@ class Calculator {
     }
     
     compute() {
-    let computation
-    const prev = parseFloat(this.previousOperand)
-    const current = parseFloat(this.currentOperand)
-    if (isNaN(prev) || isNaN(current)) return
-    switch (this.operation) {
-        case '+':
-        computation = prev + current
-        break
-        case '-':
-        computation = prev - current
-        break
-        case '*':
-        computation = prev * current
-        break
-        case '÷':
-        computation = prev / current
-        break
-        default:
-        return
-    }
-        this.currentOperand = computation
-        this.operation = undefined
-        this.previousOperand = ''
+        let computation
+        const prev = parseFloat(this.previousOperand)
+        const current = parseFloat(this.currentOperand)
+        if (isNaN(prev) || isNaN(current)) return
+        switch (this.operation) {
+            case '+':
+            computation = prev + current
+            break
+            case '-':
+            computation = prev - current
+            break
+            case '*':
+            computation = prev * current
+            break
+            case '÷':
+            computation = prev / current
+            break
+            default:
+            return
+        }
+            this.currentOperand = computation
+            this.operation = undefined
+            this.previousOperand = ''
     }
     
     getDisplayNumber(number) {

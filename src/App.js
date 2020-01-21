@@ -1,23 +1,10 @@
 import React, { useState } from 'react';
 import './styles.css';
-import Calculator from './Calculator';
-
-const Calc = new Calculator();
+import useCalculator from './useCalculator'
 function App() {
   
-  const [currentOperandText, setCurrentOperandText] = useState('')
-  const [prevOperandText, setPrevOperandText] = useState('')
-
+  const {currentOperandText, prevOperandText, updateScreen, Calc} = useCalculator();
  
-
-  function updateScreen() {
-    let {current, prev} = Calc.updateDisplay();
-  
-    setCurrentOperandText(current);
-    setPrevOperandText(prev);
-  }
-  
-
   return (
     <div className="calculator-grid">
       <div className="output">
